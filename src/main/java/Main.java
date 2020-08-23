@@ -32,6 +32,7 @@ public class Main {
                     sendMessages(sc);
                     break;
                 case "5":
+                    System.out.println("Exit");
                     return;
             }
         }
@@ -84,7 +85,9 @@ public class Main {
         if (client.getPort() < 0)
             client.setPort(askForPort(sc));
         client.setHost("netology.homework");
-        client.connect();
+        if (!client.connect()) {
+            return;
+        }
         System.out.println("Put requests [Or empty to exit]");
         System.out.println(client.request("####"));
         while (true) {

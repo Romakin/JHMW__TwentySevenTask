@@ -50,7 +50,7 @@ public class MyMiniClient {
         }
     }
 
-    public void connect() {
+    public boolean connect() {
         if (port >= 0) {
             try {
                 Socket clientSocket = new Socket(host, port);
@@ -58,12 +58,14 @@ public class MyMiniClient {
                 cIn = new BufferedReader(
                         new InputStreamReader(clientSocket.getInputStream())
                 );
+                return true;
             } catch (UnknownHostException e) {
                 System.out.println(e.getMessage());
             } catch (IOException e) {
                 System.out.println(e.getMessage());
             }
         }
+        return false;
     }
 
     public String request(String request) {
