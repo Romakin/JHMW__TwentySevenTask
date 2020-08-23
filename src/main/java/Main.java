@@ -94,10 +94,9 @@ public class Main {
             String in = sc.nextLine();
             if (in.length() == 0) {
                 break;
-            } else  {
+            } else {
                 System.out.println(client.request(in));
             }
-
         }
         client.disconnect();
     }
